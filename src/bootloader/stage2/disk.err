@@ -1,0 +1,4 @@
+disk.c(10): Warning! W102: Parameter 5: Type mismatch (warning)
+disk.c(10): Note! I2003: source conversion type is 'unsigned short *'
+disk.c(10): Note! I2004: target conversion type is 'unsigned short'
+disk.c(10): Note! I2002: 'x86_Disk_GetDriveParams' defined in: x86.h(8)

@@ -1,9 +1,9 @@
-BUILD_DIR?=build
+BUILD_DIR?=build/
 ASM?=nasm
 ASMFLAGS?=-f obj
-CC16?=/usr/bin/watcom/binl64/wcc
-CFLAGS16?=-4 -d3 -s -wx -ms -zl -zq
-LD16?=/usr/bin/watcom/binl64/wlink
+CC16?=/usr/bin/watcom/binl/wcc
+CFLAGS16?=-4 -d3 -s -wx -ms -zl -zq -za99 # -oneatxzh
+LD16?=/usr/bin/watcom/binl/wlink
 
 SOURCES_C=$(wildcard *.c)
 SOURCES_ASM=$(wildcard *.asm)
@@ -29,7 +29,5 @@ always:
 	mkdir -p $(BUILD_DIR)/stage2/c
 	mkdir -p $(BUILD_DIR)/stage2/asm
 
-
 clean:
 	rm -f $(BUILD_DIR)/stage2.bin
-

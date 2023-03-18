@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Mar 11 2023 00:52:12 (64-bit)
 Copyright (c) 2002-2023 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       23/03/15 19:40:20
+Created on:       23/03/15 20:21:24
 Executable Image: /home/luka/Projects/OS/build/stage2.bin
 creating a RAW Binary Image executable
 
@@ -13,7 +13,7 @@ creating a RAW Binary Image executable
 Group                           Address              Size
 =====                           =======              ====
 
-DGROUP                          0000057c             00000028
+DGROUP                          000007f6             00000028
 
 
 
@@ -25,10 +25,10 @@ Segment                Class          Group          Address         Size
 =======                =====          =====          =======         ====
 
 _ENTRY                 CODE           AUTO           00000000        00000013
-_TEXT                  CODE           AUTO           00000013        00000569
-CONST                  DATA           DGROUP         0000057c        00000015
-CONST2                 DATA           DGROUP         00000592        00000011
-_DATA                  DATA           DGROUP         000005a4        00000000
+_TEXT                  CODE           AUTO           00000013        000007e2
+CONST                  DATA           DGROUP         000007f6        00000015
+CONST2                 DATA           DGROUP         0000080c        00000011
+_DATA                  DATA           DGROUP         0000081e        00000000
 
 
                         +----------------+
@@ -44,16 +44,24 @@ Address        Symbol
 Module: /home/luka/Projects/OS/build/stage2/asm/main.obj(main.asm)
 00000000       entry
 Module: /home/luka/Projects/OS/build/stage2/asm/x86.obj(x86.asm)
-00000013       _x86_div64_32
-00000041       _x86_Video_WriteCharTeletype
+00000013       __U4D
+0000003a       _x86_div64_32
+00000068       _x86_Video_WriteCharTeletype
+0000007b       _x86_Disk_Reset
+00000090       _x86_Disk_Read
+000000c5       _x86_Disk_GetDriveParams
+Module: /home/luka/Projects/OS/build/stage2/c/disk.obj(/home/luka/Projects/OS/src/bootloader/stage2/disk.c)
+00000109+      DISK_Initialize_
+0000017d+      DISK_LBA2CHS_
+00000230+      DISK_ReadSectors_
 Module: /home/luka/Projects/OS/build/stage2/c/main.obj(/home/luka/Projects/OS/src/bootloader/stage2/main.c)
-00000054       _cstart_
+000002cd       _cstart_
 Module: /home/luka/Projects/OS/build/stage2/c/stdio.obj(/home/luka/Projects/OS/src/bootloader/stage2/stdio.c)
-00000072+      putc_
-00000099+      puts_
-000000d0       _printf
-0000032c+      printf_number_
-00000592+      _g_HexChars
+000002eb+      putc_
+00000312+      puts_
+00000349       _printf
+000005a5+      printf_number_
+0000080c+      _g_HexChars
 
 
                         +---------------------+
@@ -67,17 +75,22 @@ Module          Segment               Class           Address         Size
 ======          =======               =====           =======         ====
 
 main.asm        _ENTRY                CODE           00000000         00000013
-x86.asm         _TEXT                 CODE           00000013         00000041
+x86.asm         _TEXT                 CODE           00000013         000000f6
+/home/luka/Projects/OS/src/bootloader/stage2/disk.c
+                _TEXT                 CODE           00000109         000001c4
+                CONST                 DATA           000007f6         00000000
+                CONST2                DATA           0000080c         00000000
+                _DATA                 DATA           0000081e         00000000
 /home/luka/Projects/OS/src/bootloader/stage2/main.c
-                _TEXT                 CODE           00000054         0000001e
-                CONST                 DATA           0000057c         00000015
-                CONST2                DATA           00000592         00000000
-                _DATA                 DATA           000005a4         00000000
+                _TEXT                 CODE           000002cd         0000001e
+                CONST                 DATA           000007f6         00000015
+                CONST2                DATA           0000080c         00000000
+                _DATA                 DATA           0000081e         00000000
 /home/luka/Projects/OS/src/bootloader/stage2/stdio.c
-                _TEXT                 CODE           00000072         0000050a
-                CONST                 DATA           00000592         00000000
-                CONST2                DATA           00000592         00000011
-                _DATA                 DATA           000005a4         00000000
+                _TEXT                 CODE           000002eb         0000050a
+                CONST                 DATA           0000080c         00000000
+                CONST2                DATA           0000080c         00000011
+                _DATA                 DATA           0000081e         00000000
 Warning! W1014: stack segment not found
 
 
@@ -86,6 +99,6 @@ Warning! W1014: stack segment not found
                         +-----------------------+
 
 Stack size:  0200 (512.)
-Memory size:  05a4 (1444.)
+Memory size:  081e (2078.)
 Entry point address: 00000000
-Link time: 00:00.02
+Link time: 00:00.95
