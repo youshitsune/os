@@ -1,3 +1,19 @@
 fat.c(66): Warning! W131: No prototype found for function 'DISK_ReadSector'
 fat.c(66): Warning! W308: The function 'DISK_ReadSector' without prototyped parameters called
 fat.c(66): Note! I2002: 'DISK_ReadSector' defined in: fat.c(66)
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 68
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 68
+fat.c(305): Error! E1119: Internal compiler error 67
+fat.c(305): Error! E1119: Internal compiler error 68
+fat.c(305): Error! E1119: I

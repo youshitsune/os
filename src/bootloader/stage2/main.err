@@ -1,4 +1,0 @@
-main.c(40): Warning! W102: Parameter 1: Type mismatch (warning)
-main.c(40): Note! I2003: source conversion type is 'char *'
-main.c(40): Note! I2004: target conversion type is 'char'
-main.c(40): Note! I2002: 'putc' defined in: stdio.h(4)

@@ -3,48 +3,55 @@
 #include "disk.h"
 #include "fat.h"
 
-void far* g_data = (void far*)0x00500200;
+int main(int argc, const char** argv)
+{
+    if (argc < 3)
+    {
+        printf("Syntax: %s <image> <file_path>", argv[0]);
+    }
 
-void _cdecl cstart_(uint16_t bootDrive){
     DISK disk;
-    if (!DISK_Initialize(&disk, bootDrive)){
-        printf("Disk init error\r\n");
-        goto end;
+    if (!DISK_Initialize(&disk, argv[1]))
+    {
+        printf("Disk init error\n");
+        return -1;
     }
 
-    DISK_ReadSectors(&disk, 19, 1, g_data);
-
-    if (!FAT_Initialize(&disk)){
-        printf("FAT init error\r\n");
-        goto end;
+    if (!FAT_Initialize(&disk))
+    {
+        printf("FAT init error\n");
+        return -1;
     }
 
-    FAT_File far* fd = FAT_Open(&disk, "/");
-    FAT_DirectoryEntry entry;
-    int i = 0;
-    while (FAT_ReadEntry(&disk, fd, &entry) && i++ < 5){
-        printf(" ");
-        for (int i = 0; i < 11; i++){
-            putc(entry.Name[i]);
+    // browse files in root
+    FAT_File far* fd = FAT_Open(&disk, argv[2]);
+
+    if (fd->IsDirectory)
+    {
+        FAT_DirectoryEntry entry;
+        int i = 0;
+        while (FAT_ReadEntry(&disk, fd, &entry) && i++ < 10)
+        {
+            printf("  ");
+            for (int i = 0; i < 11; i++)
+                putc(entry.Name[i], stdout);
+            printf("\r\n");
         }
-        printf("\r\n");
     }
+    else
+    {
+        uint32_t read = 0;
+        char buffer[100];
+        while ((read = FAT_Read(&disk, fd, sizeof(buffer), buffer)))
+        {
+            // for (uint32_t i = 0; i < read; i++)
+            //     putc(buffer[i], stdout);
+            // fflush(stdout);
+        }
+    }
+    
     FAT_Close(fd);
 
-    char buffer[100];
-    uint32_t read;
-    fd = FAT_Open(&disk, "test.txt");
-    while ((read = FAT_Read(&disk, fd, sizeof(buffer), buffer))){
-        for (uint32_t i = 0; i < read; i++){
-            if (buffer[i] == '\n'){
-                putc("\r");
-            }
-            putc(buffer[i]);
-        }
-            }
-    FAT_Close(fd);
-
-end:
-    for (;;);
+    return 0;
 }
 

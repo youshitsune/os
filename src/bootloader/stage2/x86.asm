@@ -22,6 +22,20 @@ __U4D:
     
     ret
 
+global __U4M
+__U4M:
+    shl edx, 16
+    mov dx, ax
+    mov eax, edx
+    
+    shl ecx, 16
+    mov cx, bx
+    mul ecx
+    mov edx, eax
+    shr edx, 16
+    
+    ret
+
 global _x86_div64_32
 _x86_div64_32:
     push bp
@@ -91,6 +105,9 @@ _x86_Disk_Read:
     push bp
     mov bp, sp
     
+    push bx
+    push es
+
     mov dl, [bp + 4]
 
     mov ch, [bp + 6]

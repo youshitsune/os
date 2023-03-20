@@ -37,7 +37,7 @@ void _cdecl cstart_(uint16_t bootDrive){
     while ((read = FAT_Read(&disk, fd, sizeof(buffer), buffer))){
         for (uint32_t i = 0; i < read; i++){
             if (buffer[i] == '\n'){
-                putc("\r");
+                putc('\r');
             }
             putc(buffer[i]);
         }
