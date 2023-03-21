@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Mar 11 2023 00:52:12 (64-bit)
 Copyright (c) 2002-2023 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       23/03/21 06:55:53
+Created on:       23/03/21 06:59:06
 Executable Image: /home/luka/Projects/OS/build/stage2.bin
 creating a RAW Binary Image executable
 
@@ -157,4 +157,4 @@ Warning! W1014: stack segment not found
 Stack size:  0200 (512.)
 Memory size:  1be8 (7144.)
 Entry point address: 00000000
-Link time: 00:00.56
+Link time: 00:00.55
