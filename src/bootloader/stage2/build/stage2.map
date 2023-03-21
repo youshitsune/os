@@ -1,8 +1,8 @@
 Open Watcom Linker Version 2.0 beta Mar 11 2023 00:52:12 (64-bit)
 Copyright (c) 2002-2023 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       23/03/21 06:55:53
-Executable Image: /home/luka/Projects/OS/build/stage2.bin
+Created on:       23/03/21 06:52:29
+Executable Image: build//stage2.bin
 creating a RAW Binary Image executable
 
 
@@ -42,9 +42,9 @@ _BSS                   BSS            DGROUP         00001be0        00000008
 Address        Symbol
 =======        ======
 
-Module: /home/luka/Projects/OS/build/stage2/asm/main.obj(main.asm)
+Module: build//stage2/asm/main.obj(main.asm)
 00000000       entry
-Module: /home/luka/Projects/OS/build/stage2/asm/x86.obj(x86.asm)
+Module: build//stage2/asm/x86.obj(x86.asm)
 00000013       __U4D
 0000003a       __U4M
 00000054       _x86_div64_32
@@ -52,14 +52,14 @@ Module: /home/luka/Projects/OS/build/stage2/asm/x86.obj(x86.asm)
 00000095       _x86_Disk_Reset
 000000aa       _x86_Disk_Read
 000000e1       _x86_Disk_GetDriveParams
-Module: /home/luka/Projects/OS/build/stage2/c/ctype.obj(/home/luka/Projects/OS/src/bootloader/stage2/ctype.c)
+Module: build//stage2/c/ctype.obj(/home/luka/Projects/OS/src/bootloader/stage2/ctype.c)
 00000125+      islower_
 00000163       toupper_
-Module: /home/luka/Projects/OS/build/stage2/c/disk.obj(/home/luka/Projects/OS/src/bootloader/stage2/disk.c)
+Module: build//stage2/c/disk.obj(/home/luka/Projects/OS/src/bootloader/stage2/disk.c)
 000001ab       DISK_Initialize_
 00000221+      DISK_LBA2CHS_
 000002d4       DISK_ReadSectors_
-Module: /home/luka/Projects/OS/build/stage2/c/fat.obj(/home/luka/Projects/OS/src/bootloader/stage2/fat.c)
+Module: build//stage2/c/fat.obj(/home/luka/Projects/OS/src/bootloader/stage2/fat.c)
 00000371+      FAT_ReadBootSector_
 000003a5+      FAT_ReadFat_
 000003e9       FAT_Initialize_
@@ -71,14 +71,14 @@ Module: /home/luka/Projects/OS/build/stage2/c/fat.obj(/home/luka/Projects/OS/src
 00000c9a       FAT_Close_
 00000d18+      FAT_FindFile_
 00000e52       FAT_Open_
-Module: /home/luka/Projects/OS/build/stage2/c/main.obj(/home/luka/Projects/OS/src/bootloader/stage2/main.c)
+Module: build//stage2/c/main.obj(/home/luka/Projects/OS/src/bootloader/stage2/main.c)
 00000fcc       _cstart_
 00001bdc+      _g_data
-Module: /home/luka/Projects/OS/build/stage2/c/memory.obj(/home/luka/Projects/OS/src/bootloader/stage2/memory.c)
+Module: build//stage2/c/memory.obj(/home/luka/Projects/OS/src/bootloader/stage2/memory.c)
 0000117b       memcpy_
 000011f3       memset_
 00001252       memcmp_
-Module: /home/luka/Projects/OS/build/stage2/c/stdio.obj(/home/luka/Projects/OS/src/bootloader/stage2/stdio.c)
+Module: build//stage2/c/stdio.obj(/home/luka/Projects/OS/src/bootloader/stage2/stdio.c)
 000012cf       putc_
 000012f6+      puts_
 0000132d+      puts_f_
@@ -86,11 +86,11 @@ Module: /home/luka/Projects/OS/build/stage2/c/stdio.obj(/home/luka/Projects/OS/s
 000015ed+      printf_number_
 00001861+      print_buffer_
 00001bc6+      _g_HexChars
-Module: /home/luka/Projects/OS/build/stage2/c/string.obj(/home/luka/Projects/OS/src/bootloader/stage2/string.c)
+Module: build//stage2/c/string.obj(/home/luka/Projects/OS/src/bootloader/stage2/string.c)
 000018dd       strchr_
 00001938+      strcpy_
 000019ac       strlen_
-Module: /home/luka/Projects/OS/build/stage2/c/utility.obj(/home/luka/Projects/OS/src/bootloader/stage2/utility.c)
+Module: build//stage2/c/utility.obj(/home/luka/Projects/OS/src/bootloader/stage2/utility.c)
 000019e7+      align_
 
 
@@ -157,4 +157,4 @@ Warning! W1014: stack segment not found
 Stack size:  0200 (512.)
 Memory size:  1be8 (7144.)
 Entry point address: 00000000
-Link time: 00:00.56
+Link time: 00:00.57
